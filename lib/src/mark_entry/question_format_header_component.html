@@ -1,0 +1,28 @@
+<div class="flex">
+  <div class="grid header" [ngStyle]="gridStyle">
+    <div class="column">
+      <div class="row">
+        Student
+      </div>
+      <div class="row">
+        Reg No.
+      </div>
+    </div>
+    <div class="column">
+      State
+    </div>
+    <ng-container *ngFor="let fmt of format">
+      <div class="column" *ngIf="fmt.group < fmt.id">
+        /
+      </div>
+      <div class="column mark">
+        <div class="row">
+          {{ fmt.question }}
+        </div>
+        <div class="row">
+          {{ fmt.maxMarks }}
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

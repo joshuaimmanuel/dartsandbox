@@ -1,0 +1,13 @@
+<material-expansionpanel
+   [alwaysHideExpandIcon]="true" disabled [expanded]="true"
+   [showSaveCancel]="false" name="Student marks">
+  <div class="actionbar">
+    <material-button raised (trigger)="loadData()">
+      Load
+    </material-button>
+  </div>
+  <div class="content" *ngIf="questionFormat != null && questionFormat.isNotEmpty">
+    <ue-question-format-header [format]="questionFormat">
+    </ue-question-format-header>
+  </div>
+</material-expansionpanel>

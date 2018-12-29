@@ -1,0 +1,11 @@
+.actionbar {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    padding-top: 20px;
+    min-width: 320px;
+    overflow: auto;
+    width: 100%;
+}

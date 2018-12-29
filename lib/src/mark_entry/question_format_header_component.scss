@@ -1,0 +1,27 @@
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+}
+
+.header {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.row {
+    width: 100%;
+}
+
+.mark {
+    min-width: 35px;
+}
