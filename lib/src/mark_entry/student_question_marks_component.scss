@@ -13,17 +13,18 @@
     display: grid;
 }
 
-.header {
-    font-weight: bold;
-    padding-bottom: 10px;
-}
-
 .row {
     width: 100%;
 }
 
 .mark {
     min-width: 52px;
+    text-align: center;
+}
+
+.error {
+    text-align: center;
+    color: red;
 }
 
 .mark-status {
@@ -32,4 +33,9 @@
 
 .reg-num {
     min-width: 120px;
+}
+
+.entry {
+    width: 50px;
+    box-sizing: border-box;
 }

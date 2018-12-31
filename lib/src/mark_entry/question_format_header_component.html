@@ -1,6 +1,6 @@
 <div class="flex">
   <div class="grid header" [ngStyle]="gridStyle">
-    <div class="column">
+    <div class="column reg-num">
       <div class="row">
         Student
       </div>
@@ -8,7 +8,7 @@
         Reg No.
       </div>
     </div>
-    <div class="column">
+    <div class="column mark-status">
       State
     </div>
     <ng-container *ngFor="let fmt of format">
@@ -24,5 +24,10 @@
         </div>
       </div>
     </ng-container>
+    <div class="mark">
+      Total
+    </div>
+    <div class="dummy-slot">
+    </div>
   </div>
 </div>

@@ -1,0 +1,57 @@
+<div class="flex">
+  <div class="grid" [ngStyle]="gridStyle">
+    <div class="column reg-num">
+      <div class="row" >
+        {{ student.regNum }}
+      </div>
+    </div>
+    <div class="column mark-status">
+      <select [(ngModel)]="selectedStatus"
+              [disabled]="student.hasEntry && student.isSaved">
+        <option *ngFor="let status of examStatus" [value]="status.name">
+          {{ status.name }}
+        </option>
+      </select>
+    </div>
+    <ng-container *ngFor="let fmt of format">
+      <div class="column" *ngIf="fmt.group < fmt.id">
+        /
+      </div>
+      <ng-container *ngIf="student.hasEntry && student.status != null && student.status.id == 1">
+        <ng-container *ngIf="student.isSaved">
+          <div class="mark" *ngIf="student.obtainedMarks.containsKey(fmt.id)">
+            {{ student.obtainedMarks[fmt.id] }}
+          </div>
+          <div class="mark" *ngIf="!student.obtainedMarks.containsKey(fmt.id)">
+            -
+          </div>
+        </ng-container>
+        <div class="mark" *ngIf="!student.isSaved">
+          <input [ngModel]="student.obtainedMarks[fmt.id]" class="entry"
+                 (ngModelChange)="onMarksChanged(fmt.id, fmt.question, $event)">
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!student.hasEntry || (student.status == null && student.status.id != 0)">
+        <div class="mark">
+          -
+        </div>
+      </ng-container>
+    </ng-container>
+    <div class="mark">
+      <ng-container *ngIf="student.status != null && student.status.id == 1">
+        {{ student.total }}
+      </ng-container>
+      <ng-container *ngIf="student.status == null || student.status.id != 1">
+        {{ remark }}
+      </ng-container>
+    </div>
+    <div>
+      <ng-container *ngIf="student.hasEntry && student.isSaved">
+        <button (click)="onEdit()">Edit</button>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<div class="flex error" *ngIf="student.hasError">
+  {{ student.errorMessage }}
+</div>

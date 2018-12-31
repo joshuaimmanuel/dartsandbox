@@ -5,9 +5,20 @@
     <material-button raised (trigger)="loadData()">
       Load
     </material-button>
+    <material-button raised (trigger)="hasChanges()">
+      Has Changes
+    </material-button>
+    <span class="change">
+      {{ chngStr }}
+    </span>
   </div>
-  <div class="content" *ngIf="questionFormat != null && questionFormat.isNotEmpty">
+  <div class="content" *ngIf="dataLoaded">
     <ue-question-format-header [format]="questionFormat">
     </ue-question-format-header>
+    <ng-container *ngFor="let studentMark of studentMarkList">
+      <ue-student-question-mark [format]="questionFormat"
+                                [student]="studentMark">
+      </ue-student-question-mark>
+    </ng-container>
   </div>
 </material-expansionpanel>

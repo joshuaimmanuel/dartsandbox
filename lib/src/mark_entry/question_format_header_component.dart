@@ -39,7 +39,7 @@ class QuestionFormatHeaderComponent implements OnInit {
       }
       columns += 1;
     }
-    gridStyle['grid-template-columns'] = '2fr 2fr repeat($columns, 1fr)';
+    gridStyle['grid-template-columns'] = '2fr 2fr repeat($columns, 1fr) 1fr';
   }
 }
 

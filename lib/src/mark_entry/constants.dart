@@ -7,6 +7,7 @@
 // distribution or for further clarifications, please contact
 // legal@hipro.co.in.
 
+import 'models/student_mark.dart';
 
 const questionFormat = [
   {"id": 1, "max_marks": 10.00, "qno": "A1", "group": 1},
@@ -41,6 +42,24 @@ const questionFormat = [
   {"id": 30, "max_marks": 20.00, "qno": "C10", "group": 30}
 ];
 
+const List<ExamStatus> examStatusList = [
+  ExamStatus(0, 'Not entered'),
+  ExamStatus(1, 'Attended'),
+  ExamStatus(2, 'Absent'),
+  ExamStatus(3, 'Not permitted'),
+];
+
+ExamStatus getStatus(int val) {
+  return examStatusList.firstWhere((status) {
+      return status.id == val;
+    });
+}
+
+ExamStatus getStatusByName(String val) {
+  return examStatusList.firstWhere((status) {
+      return status.name == val;
+    });
+}
 
 // Local Variables:
 // mode: dart
