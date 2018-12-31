@@ -7,7 +7,6 @@
 // distribution or for further clarifications, please contact
 // legal@hipro.co.in.
 
-import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_expansionpanel/material_expansionpanel.dart';
@@ -18,7 +17,6 @@ import 'mark_service.dart';
 import 'models/question_format.dart';
 import 'models/student_mark.dart';
 import 'constants.dart' as cnst;
-
 
 @Component(
   selector: 'ue-mark-entry',

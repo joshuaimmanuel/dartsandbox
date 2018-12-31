@@ -7,7 +7,6 @@
 // distribution or for further clarifications, please contact
 // legal@hipro.co.in.
 
-import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 
@@ -54,7 +53,8 @@ class StudentQuestionMarksComponent implements OnInit {
       }
       columns += 1;
     }
-    gridStyle['grid-template-columns'] = '2fr 2fr repeat($columns, 1fr) 1fr 1fr';
+    gridStyle['grid-template-columns'] =
+        '2fr 2fr repeat($columns, 1fr) 1fr 1fr';
     examStatus = List<ExamStatus>.from(cnst.examStatusList);
     if (student.hasEntry) {
       examStatus.removeAt(0);
@@ -92,7 +92,8 @@ class StudentQuestionMarksComponent implements OnInit {
   void onMarksChanged(int fmtId, String qno, String newMarks) {
     double marks = double.tryParse(newMarks);
     double oldMark = null;
-    print("fmtid : ${fmtId}, qno : ${qno}, newMarks : ${newMarks}, marks : ${marks}");
+    print(
+        "fmtid : ${fmtId}, qno : ${qno}, newMarks : ${newMarks}, marks : ${marks}");
     if (marks == null && newMarks.length > 0) {
       final errStr = "${qno}: Invalid marks";
       errors[fmtId] = errStr;

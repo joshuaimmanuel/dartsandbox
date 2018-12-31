@@ -7,7 +7,6 @@
 // distribution or for further clarifications, please contact
 // legal@hipro.co.in.
 
-import 'dart:async';
 import 'package:angular/angular.dart';
 
 import 'models/question_format.dart';
