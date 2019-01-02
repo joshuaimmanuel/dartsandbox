@@ -39,11 +39,32 @@ class MarkEntryComponent implements OnInit {
   List<StudentMark> studentMarkList;
   bool dataLoaded = false;
   String chngStr = '';
+  DateTime t1;
+  DateTime t2;
 
   MarkEntryComponent(this._markService);
 
   void ngOnInit() {
     print("MarkEntryComponent: ngOnInit");
+  }
+
+  Null currentTime(int i) {
+    if (i == 1) {
+      if (t1 != null) {
+        return;
+      }
+      t1 = DateTime.now();
+    } else {
+      if (t2 != null) {
+        return;
+      }
+      t2 = DateTime.now();
+    }
+  }
+
+  void printTime() {
+    print("t1: ${t1.toString()}");
+    print("t2: ${t2.toString()}");
   }
 
   void loadData() {
@@ -60,6 +81,7 @@ class MarkEntryComponent implements OnInit {
       studentMarkList.add(mark);
     }
     dataLoaded = true;
+    t1 = DateTime.now();
   }
 
   void hasChanges() {

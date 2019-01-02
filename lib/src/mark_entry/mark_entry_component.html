@@ -8,6 +8,9 @@
     <material-button raised (trigger)="hasChanges()">
       Has Changes
     </material-button>
+    <material-button raised (trigger)="printTime()">
+      Print time
+    </material-button>
     <span class="change">
       {{ chngStr }}
     </span>
@@ -15,10 +18,13 @@
   <div class="content" *ngIf="dataLoaded">
     <ue-question-format-header [format]="questionFormat">
     </ue-question-format-header>
-    <ng-container *ngFor="let studentMark of studentMarkList">
+    <ng-container *ngFor="let studentMark of studentMarkList; let i=index">
       <ue-student-question-mark [format]="questionFormat"
                                 [student]="studentMark">
       </ue-student-question-mark>
+      <ng-container *ngIf="i == 799">
+        {{currentTime(2)}}
+      </ng-container>
     </ng-container>
   </div>
 </material-expansionpanel>
